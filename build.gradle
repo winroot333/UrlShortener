@@ -2,6 +2,8 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version "${springBootVersion}"
     id 'io.spring.dependency-management' version "${dependencyManagementVersion}"
+    id 'jacoco'
+    id "org.sonarqube" version "${sonarVersion}"
 }
 
 group = 'io.github.winroot33'
@@ -35,6 +37,22 @@ dependencies {
     implementation "org.mapstruct:mapstruct:${mapstructVersion}"
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
     implementation "org.apache.commons:commons-lang3:${commonsLang3Version}"
+}
+
+jacoco {
+    toolVersion = "${jacocoVersion}"
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+    }
 }
 
 tasks.named('test') {

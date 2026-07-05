@@ -1,0 +1,13 @@
+spring:
+  application.name: UrlShortener
+  datasource:
+    url: jdbc:postgresql://localhost:5432/url_shortener
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+app:
+  base-url: http://localhost
+  link:
+    random-code-digits: 6
+    expiration: 7d
