@@ -68,7 +68,7 @@ public class LinkServiceTest {
         List<Link> result = linkService.findAll(page, size);
 
         assertThat(result).hasSize(2)
-                        .isEqualTo(links);
+                .isEqualTo(links);
         verify(linkRepository, times(1)).findAll(pageable);
     }
 
