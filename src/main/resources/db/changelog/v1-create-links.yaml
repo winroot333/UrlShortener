@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-links-table
+      author: Mikhail
+      preConditions:
+        - not:
+            - tableExists:
+                tableName: links
+      changes:
+        - createTable:
+            tableName: links
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: original_url
+                  type: TEXT
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: code
+                  type: VARCHAR(32)
+                  constraints:
+                    nullable: false
+                    unique: true
+
+              - column:
+                  name: expires_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: true
