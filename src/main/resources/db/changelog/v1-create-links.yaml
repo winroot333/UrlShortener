@@ -34,4 +34,4 @@ databaseChangeLog:
                   name: expires_at
                   type: TIMESTAMP
                   constraints:
-                    nullable: false
+                    nullable: true

@@ -29,7 +29,7 @@ public class Link {
     @Column(name = "code", nullable = false, unique = true)
     private String code;
 
-    @Column(name = "expires_at", nullable = false)
+    @Column(name = "expires_at")
     private LocalDateTime expiresAt;
 
 }

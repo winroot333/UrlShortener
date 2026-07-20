@@ -7,7 +7,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.time.Duration;
 import java.time.LocalDateTime;
 
 /**
@@ -23,8 +22,6 @@ public class LinkUtils {
     private final LinkRepository linkRepository;
     @Value("${app.base-url}")
     String baseUrl;
-    @Value("${app.link.expiration}")
-    Duration linkDuration;
     @Value("${app.link.random-code-digits}")
     private int codeDigitsCount;
 

@@ -31,11 +31,6 @@ public class LinkService {
     private final LinkRepository linkRepository;
     private final LinkUtils linkUtils;
 
-    @Transactional(readOnly = true)
-    public Link findLinkById(String id) {
-        return null;
-    }
-
     /**
      * Метод для получения всех коротких ссылок с пагинацией
      *
