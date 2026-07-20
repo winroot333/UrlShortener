@@ -29,13 +29,13 @@ public record LinkResponse(
         )
         String shortCode,
         @Schema(
-                description = "Full shortened URL that can be used for redirection",
+                description = "Full shortened url that can be used for redirection",
                 example = "http://localhost:8080/test11",
                 requiredMode = Schema.RequiredMode.REQUIRED
         )
         String shortenedUrl,
         @Schema(
-                description = "The original long URL that was shortened",
+                description = "The original long url that was shortened",
                 example = "https://example.com/very/long/url/path?param=value",
                 requiredMode = Schema.RequiredMode.REQUIRED
         )

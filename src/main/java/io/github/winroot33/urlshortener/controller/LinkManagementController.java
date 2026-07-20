@@ -50,7 +50,7 @@ public class LinkManagementController implements LinkManagementOpenApi {
     @Override
     @PostMapping
     public LinkResponse create(@RequestBody @Valid LinkCreateDto dto) {
-        Link savedLink = linkService.addLink(dto.URL(), dto.code(), dto.expirationDate());
+        Link savedLink = linkService.addLink(dto.url(), dto.code(), dto.expirationDate());
         return linkMapper.toResponse(savedLink);
     }
 
@@ -69,7 +69,7 @@ public class LinkManagementController implements LinkManagementOpenApi {
                                    @NotNull(message = "Link id should not be null")
                                    UUID id,
                                    @RequestBody @Valid LinkUpdateDto dto) {
-        Link updatedLink = linkService.updateLink(id, dto.URL(), dto.expirationDate());
+        Link updatedLink = linkService.updateLink(id, dto.url(), dto.expirationDate());
         return linkMapper.toResponse(updatedLink);
     }
 

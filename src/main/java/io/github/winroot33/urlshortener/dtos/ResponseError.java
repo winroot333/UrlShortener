@@ -14,7 +14,7 @@ public class ResponseError {
 
     @Schema(
             description = "Error List",
-            example = "URL cannot be blank"
+            example = "url cannot be blank"
     )
     private List<String> errors;
 

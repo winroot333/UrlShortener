@@ -47,7 +47,7 @@ public class LinkService {
     /**
      * Добавление короткой ссылки
      *
-     * @param url       оригинальный URL для переадресации
+     * @param url       оригинальный url для переадресации
      * @param code      название, код для ссылки, nullable
      * @param expiresAt срок действия ссылки, nullable
      * @return добавленная ссылка
@@ -72,7 +72,7 @@ public class LinkService {
     /**
      * Обновление короткой ссылки
      *
-     * @param url       оригинальный URL для переадресации
+     * @param url       оригинальный url для переадресации
      * @param expiresAt срок действия ссылки, nullable
      * @return добавленная ссылка
      */
@@ -101,10 +101,10 @@ public class LinkService {
     }
 
     /**
-     * Метод для получения оригинального URL по корткому коду для переадресации
+     * Метод для получения оригинального url по корткому коду для переадресации
      *
-     * @param code код для получения URL
-     * @return Оригинальный URL
+     * @param code код для получения url
+     * @return Оригинальный url
      */
     @Transactional(readOnly = true)
     public String getOriginalUrl(String code) {

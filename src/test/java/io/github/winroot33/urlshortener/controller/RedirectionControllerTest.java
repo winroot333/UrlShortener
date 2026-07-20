@@ -28,7 +28,7 @@ public class RedirectionControllerTest {
     private LinkService linkService;
 
     @Test
-    @DisplayName("Redirect to original URL should redirect when short code exists")
+    @DisplayName("Redirect to original url should redirect when short code exists")
     void redirectToOriginalUrl_ShouldRedirect_WhenShortCodeExists() throws Exception {
         String shortCode = "abc123";
         String originalUrl = "https://example.com";
@@ -43,7 +43,7 @@ public class RedirectionControllerTest {
     }
 
     @Test
-    @DisplayName("Redirect to original URL should return 404 when short code not found")
+    @DisplayName("Redirect to original url should return 404 when short code not found")
     void redirectToOriginalUrl_ShouldReturn404_WhenShortCodeNotFound() throws Exception {
         String shortCode = "invalid";
         String errorMessage = "Link not found for code: " + shortCode;
@@ -60,7 +60,7 @@ public class RedirectionControllerTest {
     }
 
     @Test
-    @DisplayName("Redirect to original URL should return 410 when link is expired")
+    @DisplayName("Redirect to original url should return 410 when link is expired")
     void redirectToOriginalUrl_ShouldReturn410_WhenLinkExpired() throws Exception {
         String shortCode = "expired";
         String errorMessage = "Link expired for code: " + shortCode;

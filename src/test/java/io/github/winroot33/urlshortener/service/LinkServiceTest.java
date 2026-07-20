@@ -228,7 +228,7 @@ public class LinkServiceTest {
     }
 
     @Test
-    @DisplayName("Get original URL should return URL when link exists and not expired")
+    @DisplayName("Get original url should return url when link exists and not expired")
     void getOriginalUrl_ShouldReturnUrl_WhenLinkExistsAndNotExpired() {
         String code = "abc123";
         UUID id = UUID.randomUUID();
@@ -249,7 +249,7 @@ public class LinkServiceTest {
     }
 
     @Test
-    @DisplayName("Get original URL should throw LinkNotFoundException when link does not exist")
+    @DisplayName("Get original url should throw LinkNotFoundException when link does not exist")
     void getOriginalUrl_ShouldThrowException_WhenLinkNotFound() {
         String code = "abc123";
 
@@ -264,7 +264,7 @@ public class LinkServiceTest {
     }
 
     @Test
-    @DisplayName("Get original URL should throw LinkExpiredException when link is expired")
+    @DisplayName("Get original url should throw LinkExpiredException when link is expired")
     void getOriginalUrl_ShouldThrowException_WhenLinkExpired() {
         String code = "abc123";
         UUID id = UUID.randomUUID();

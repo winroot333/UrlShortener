@@ -26,10 +26,10 @@ public class LinkUtils {
     private int codeDigitsCount;
 
     /**
-     * Метод получения короткого URL по коду
+     * Метод получения короткого url по коду
      *
-     * @param code код для получения короткого URL
-     * @return короткий URL
+     * @param code код для получения короткого url
+     * @return короткий url
      */
     public String getShortUrlByCode(String code) {
         return baseUrl + "/" + code;

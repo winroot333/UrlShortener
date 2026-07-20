@@ -18,16 +18,16 @@ import java.time.LocalDateTime;
 public record LinkCreateDto(
 
         @Schema(
-                description = "The URL to be shortened",
+                description = "The url to be shortened",
                 example = "https://example.com/very/long/url/to/be/shortened",
                 minLength = 2,
                 maxLength = 1000,
                 requiredMode = Schema.RequiredMode.REQUIRED
         )
-        @NotBlank(message = "URL cannot be blank")
-        @Size(min = 2, max = 1000, message = "URL should be between 2 and 1000 symbols")
-        @URL(message = "Should be valid URL")
-        String URL,
+        @NotBlank(message = "url cannot be blank")
+        @Size(min = 2, max = 1000, message = "url should be between 2 and 1000 symbols")
+        @URL(message = "Should be valid url")
+        String url,
 
         @Schema(
                 description = "Custom short code for the link. If not provided, a random code will be generated.",

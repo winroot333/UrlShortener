@@ -98,7 +98,7 @@ public class LinkManagementControllerTest {
         Link savedLink = createMockLink(UUID.randomUUID());
         LinkResponse response = createMockLinkResponse(savedLink.getId());
 
-        when(linkService.addLink(dto.URL(), dto.code(), dto.expirationDate())).thenReturn(savedLink);
+        when(linkService.addLink(dto.url(), dto.code(), dto.expirationDate())).thenReturn(savedLink);
         when(linkMapper.toResponse(savedLink)).thenReturn(response);
 
         mockMvc.perform(post("/links")
@@ -129,7 +129,7 @@ public class LinkManagementControllerTest {
         Link updatedLink = createMockLink(id);
         LinkResponse response = createMockLinkResponse(id);
 
-        when(linkService.updateLink(id, dto.URL(), dto.expirationDate())).thenReturn(updatedLink);
+        when(linkService.updateLink(id, dto.url(), dto.expirationDate())).thenReturn(updatedLink);
         when(linkMapper.toResponse(updatedLink)).thenReturn(response);
 
         mockMvc.perform(put("/links/{id}", id)

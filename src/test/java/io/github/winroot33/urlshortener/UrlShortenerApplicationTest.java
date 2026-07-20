@@ -92,7 +92,7 @@ public class UrlShortenerApplicationTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(createDto)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.originalUrl").value(createDto.URL()))
+                .andExpect(jsonPath("$.originalUrl").value(createDto.url()))
                 .andExpect(jsonPath("$.shortCode").value(createDto.code()))
                 .andReturn()
                 .getResponse()
@@ -104,7 +104,7 @@ public class UrlShortenerApplicationTest {
         Link savedLink = linkRepository.findById(linkId)
                 .orElseThrow(() -> new AssertionError("Link not found in database"));
 
-        assertThat(savedLink.getOriginalUrl()).isEqualTo(createDto.URL());
+        assertThat(savedLink.getOriginalUrl()).isEqualTo(createDto.url());
         assertThat(savedLink.getCode()).isEqualTo(createDto.code());
         assertThat(savedLink.getId()).isEqualTo(linkId);
     }
@@ -118,7 +118,7 @@ public class UrlShortenerApplicationTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(createDto)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.originalUrl").value(createDto.URL()))
+                .andExpect(jsonPath("$.originalUrl").value(createDto.url()))
                 .andExpect(jsonPath("$.shortCode").value(createDto.code()))
                 .andReturn()
                 .getResponse()
@@ -129,7 +129,7 @@ public class UrlShortenerApplicationTest {
 
         mockMvc.perform(get("/{shortCode}", shortCode))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl(createDto.URL()));
+                .andExpect(redirectedUrl(createDto.url()));
     }
 
     @Test
@@ -142,7 +142,7 @@ public class UrlShortenerApplicationTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(createDto)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.originalUrl").value(createDto.URL()))
+                .andExpect(jsonPath("$.originalUrl").value(createDto.url()))
                 .andExpect(jsonPath("$.shortCode").isString())
                 .andReturn()
                 .getResponse()
