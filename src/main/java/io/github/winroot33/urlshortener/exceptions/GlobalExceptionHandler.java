@@ -97,7 +97,8 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseError handleAll(Exception e) {
         log.error(e.getMessage());
-        return new ResponseError("Server error - " + e.getMessage());
+        return new ResponseError("Internal Server error");
+
     }
 
 }
