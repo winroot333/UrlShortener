@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: url-shortener-app
+  namespace: url-shortener
   labels:
     app: url-shortener
     env: dev
@@ -37,7 +38,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: url-shortener-secret
-                  key: SPRING_DATASOURCE_PASSWORD
+                  key: POSTGRES_PASSWORD
           resources:
             limits:
               memory: "512Mi"
@@ -47,7 +48,19 @@ spec:
               cpu: "250m"
           livenessProbe:
              httpGet:
-               path: /actuator/health
+               path: /actuator/health/liveness
                port: 8080
-             initialDelaySeconds: 40
+             initialDelaySeconds: 5
+             periodSeconds: 30
+          startupProbe:
+             httpGet:
+               path: /actuator/health/readiness
+               port: 8080
+             periodSeconds: 3
+             failureThreshold: 50
+          readinessProbe:
+             httpGet:
+               path: /actuator/health/readiness
+               port: 8080
+             initialDelaySeconds: 5
              periodSeconds: 30

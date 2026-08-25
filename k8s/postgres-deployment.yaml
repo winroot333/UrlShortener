@@ -1,7 +1,8 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: postgres
+  namespace: url-shortener
   labels:
     app: postgres
 spec:
@@ -58,7 +59,6 @@ spec:
                 - $(POSTGRES_USER)
                 - -d
                 - $(POSTGRES_DB)
-            initialDelaySeconds: 30
             periodSeconds: 10
           readinessProbe:
             exec:
@@ -70,6 +70,17 @@ spec:
                 - $(POSTGRES_DB)
             initialDelaySeconds: 5
             periodSeconds: 5
+          startupProbe:
+            exec:
+              command:
+                - pg_isready
+                - -U
+                - $(POSTGRES_USER)
+                - -d
+                - $(POSTGRES_DB)
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 30
       volumes:
         - name: postgres-storage
           persistentVolumeClaim:
