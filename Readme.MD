@@ -64,3 +64,17 @@ curl -v http://localhost:8080/custom123
 ```bash
 ./gradlew test
 ```
+
+## Kubernetes
+Запуск
+
+```bash
+cd k8s
+kubectl apply -f configmap.yaml
+kubectl apply -f secret.yaml
+kubectl apply -f postgres-pvc.yaml
+kubectl apply -f postgres-deployment.yaml
+kubectl apply -f postgres-service.yaml
+kubectl apply -f app-deployment.yaml
+kubectl apply -f app-service.yaml
+```
